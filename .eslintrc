@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "eslint-config-egg"
+  ],
+  "globals": {
+    "app": true,
+    "request": true,
+    "mm": true,
+    "mock": true,
+    "assert": true
+  },
+  "rules": {
+    "strict": "off"
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  }
+}

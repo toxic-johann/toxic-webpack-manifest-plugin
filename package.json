@@ -1,0 +1,33 @@
+{
+  "name": "toxic-webpack-manifest-plugin",
+  "version": "0.1.0",
+  "description": "Generate manifest according to entry chunk, including assync chunk",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toxic-johann/toxic-webpack-manifest-plugin.git"
+  },
+  "keywords": [
+    "manifest",
+    "async",
+    "chunk",
+    "entry",
+    "chunk"
+  ],
+  "author": "toxic-johann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/toxic-johann/toxic-webpack-manifest-plugin/issues"
+  },
+  "homepage": "https://github.com/toxic-johann/toxic-webpack-manifest-plugin#readme",
+  "devDependencies": {
+    "eslint": "^4.10.0",
+    "eslint-config-egg": "^5.1.1"
+  },
+  "dependencies": {
+    "toxic-predicate-functions": "^0.1.5"
+  }
+}
