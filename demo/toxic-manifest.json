@@ -1,0 +1,23 @@
+{
+  "bundle": {
+    "entry": [
+      "/bundle.js"
+    ],
+    "async": [
+      "/chunk.2ee0460aecebfc572a43.js",
+      "/chunk.bee94a217f36937c96aa.js"
+    ]
+  },
+  "vendor": {
+    "entry": [
+      "/vendor.js"
+    ],
+    "async": []
+  },
+  "another": {
+    "entry": [
+      "/another.js"
+    ],
+    "async": []
+  }
+}

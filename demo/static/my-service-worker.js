@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["/another.html","e6577fe91f33f610de560703cbf40f3e"],["/another.js","f62a3d4cf00d7c932223235e2fa969a6"],["/bundle.js","9920ed902f69fadbda29c2f039e0a798"],["/chunk.2ee0460aecebfc572a43.js","62c257c8882a74b6cf195be8cff98fd6"],["/chunk.bee94a217f36937c96aa.js","32ee65826329172dc7cc44c1c4cb6128"],["/index.html","8d31979af5ef895b30531fe9b4a18e7e"],["/vendor.js","e3831e417efabf2f94b51f8d28a3dfed"]];
+var precacheConfig = [["/Users/zhongheng/workspace/lab/toxic-webpack-manifest-plugin/demo/toxic-html-manifest.json","d751713988987e9331980363e24189ce"],["/Users/zhongheng/workspace/lab/toxic-webpack-manifest-plugin/demo/toxic-manifest.json","89dacbc05fe62976fa8593e4f004ab54"],["/another.html","a16a3c731acb97fb2ba163d8bfcb5e79"],["/another.js","aed70bc15e007ee12bc05d5310df1f75"],["/another.js.map","ffe1fbf50332aef01ab4750293f884fd"],["/bundle.js","e3d02c5b8f8b0ba18c688d74ea94c255"],["/bundle.js.map","6f4626f505aa8490a4b344acd1b06575"],["/chunk.2ee0460aecebfc572a43.js","e856bf4eb1e4ee5948e18ed76352ba29"],["/chunk.2ee0460aecebfc572a43.js.map","235b49f779cc81677831c2a81d2faa22"],["/chunk.bee94a217f36937c96aa.js","2bf295fd1dc6f7f9584545b76f00bbc3"],["/chunk.bee94a217f36937c96aa.js.map","6c541eb05542e3017f86ae2edc7b6fc7"],["/index.html","0d0f1d10b07210a4d0a0abb5161682e0"],["/vendor.js","9e59f38a29e9701d4fb4fb38d0f36e79"],["/vendor.js.map","d4cbdaa4498d9c6a7a3eabdd678d918c"]];
 var cacheName = 'sw-precache-v2-react-dynamic-route-loading-es6-' + (self.registration ? self.registration.scope : '');
 
 

@@ -25,9 +25,11 @@
   "homepage": "https://github.com/toxic-johann/toxic-webpack-manifest-plugin#readme",
   "devDependencies": {
     "eslint": "^4.10.0",
-    "eslint-config-egg": "^5.1.1"
+    "eslint-config-egg": "^5.1.1",
+    "mutexify": "^1.2.0"
   },
   "dependencies": {
+    "fs-extra": "^4.0.2",
     "toxic-predicate-functions": "^0.1.5"
   }
 }
