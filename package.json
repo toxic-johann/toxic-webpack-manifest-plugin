@@ -4,6 +4,7 @@
   "description": "Generate manifest according to entry chunk, including assync chunk",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint index.js test/ --fix",
     "test": "jasmine test/spec.js"
   },
   "repository": {
