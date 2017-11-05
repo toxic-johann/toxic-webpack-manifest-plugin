@@ -138,7 +138,6 @@ class ToxicWebpackManifestPlugin {
    * @return {Set} return a file set
    */
   pieceFilesSet({ chunk, children }, fileSet = new Set()) {
-    // TODO: add some file check here
     chunk.files.forEach(file => {
       if (!this.isFileInclude(file)) return;
       fileSet.add(this.formatFile(file));
