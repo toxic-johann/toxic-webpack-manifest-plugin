@@ -1,5 +1,7 @@
 'use strict';
 
+require('core-js/fn/object/values');
+
 var _require = require('toxic-predicate-functions');
 
 const isEmpty = _require.isEmpty,

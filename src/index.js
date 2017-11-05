@@ -1,3 +1,4 @@
+require('core-js/fn/object/values');
 const { isEmpty, isFunction, isRegExp, isString, isArray } = require('toxic-predicate-functions');
 const fse = require('fs-extra');
 const path = require('path');
