@@ -1,6 +1,6 @@
 'use strict';
 
-require('core-js/fn/object/values');
+require('core-js/fn/object');
 
 var _require = require('toxic-predicate-functions');
 
