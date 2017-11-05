@@ -17,11 +17,11 @@ npm install toxic-webpack-manifest-plugin --save-dev
 ## Usage
 
 ```shell
-const ToxixWebpackManifestPlugin = require('toxic-webpack-manifest-plugin');
+const ToxicWebpackManifestPlugin = require('toxic-webpack-manifest-plugin');
 ...
 {
   plugins: [
-    new ToxixWebpackManifestPlugin(),
+    new ToxicWebpackManifestPlugin(),
   ]
 }
 ```
