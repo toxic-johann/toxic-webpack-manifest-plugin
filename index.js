@@ -1,8 +1,6 @@
 const { isEmpty, isFunction, isRegExp, isString, isArray } = require('toxic-predicate-functions');
 const fse = require('fs-extra');
 const path = require('path');
-const mutexify = require('mutexify');
-const lock = mutexify();
 
 function dedupe(arr) {
   return Array.from(new Set(arr));
@@ -70,12 +68,15 @@ class ToxicWebpackManifestPlugin {
       const targetObject = !this.options.htmlAsEntry
         ? manifest
         : Object.entries(htmlChunksMap).reduce((htmlManifest, [ key, chunks ]) => {
+          if (chunks === 'all') {
+            htmlManifest[key] = manifest;
+            return htmlManifest;
+          }
           htmlManifest[key] = dedupe(chunks.reduce((arr, chunkName) => {
             return arr.concat(manifest[chunkName]);
           }, []));
           return htmlManifest;
         }, {});
-      console.log(this.options.htmlAsEntry, targetObject);
       const { pretty, space } = this.options;
       const json = pretty
         ? JSON.stringify(targetObject, null, space)
@@ -97,15 +98,6 @@ class ToxicWebpackManifestPlugin {
       if (this.options.writeToDisk) {
         fse.outputFileSync(outputFile, json);
       }
-      // NOTE: make sure webpack is not writing multiple manifests simultaneously
-      // lock(function(release) {
-      //   compiler.plugin('after-emit', function(compilation, cb) {
-      //     release();
-      //     cb();
-      //   });
-
-      //   compilation.applyPluginsAsync('webpack-manifest-plugin-after-emit', manifest, cb);
-      // });
       cb();
     });
   }
