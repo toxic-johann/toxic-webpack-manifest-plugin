@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint index.js test/ --fix",
-    "test": "nyc jasmine test/spec.js"
+    "test": "nyc jasmine test/spec.js",
+    "build": "babel src/index.js --out-file index.js"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,8 @@
   },
   "homepage": "https://github.com/toxic-johann/toxic-webpack-manifest-plugin#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "eslint": "^4.10.0",
     "eslint-config-egg": "^5.1.1",
     "html-webpack-plugin": "^2.30.1",

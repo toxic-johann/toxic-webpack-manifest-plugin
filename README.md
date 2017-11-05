@@ -10,13 +10,13 @@ This webpack plugin will generate a JSON files for the hashed file version. It i
 
 ## Installation
 
-```
+```shell
 npm install toxic-webpack-manifest-plugin --save-dev
 ```
 
 ## Usage
 
-```
+```shell
 const ToxixWebpackManifestPlugin = require('toxic-webpack-manifest-plugin');
 ...
 {
@@ -44,3 +44,4 @@ const ToxixWebpackManifestPlugin = require('toxic-webpack-manifest-plugin');
 
 ## example
 
+> TODO: add some example here
