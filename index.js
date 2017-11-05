@@ -1,4 +1,4 @@
-const { isEmpty, isFunction, isRegExp, isString } = require('toxic-predicate-functions');
+const { isEmpty, isFunction, isRegExp, isString, isArray } = require('toxic-predicate-functions');
 const fse = require('fs-extra');
 const path = require('path');
 const mutexify = require('mutexify');
@@ -11,7 +11,7 @@ function dedupe(arr) {
 class ToxicWebpackManifestPlugin {
   constructor(options = {}) {
     this.options = Object.assign({
-      outputPath: '',
+      outputPath: undefined,
       name: 'toxic-manifest.json',
       writeToDisk: false,
       htmlAsEntry: false,
@@ -50,29 +50,19 @@ class ToxicWebpackManifestPlugin {
       // build the manifest based on the chunkTree
       const manifest = Object.values(chunkTree).reduce((manifest, branch) => {
         const { chunk: { entrypoints } } = branch;
+        let files;
         if (this.options.distinctAsync) {
           const { entry, async } = this.pieceFilesSetDistinctAsync(branch);
-          const fileSet = {
+          files = {
             entry: Array.from(entry),
             async: Array.from(async),
           };
-          entrypoints.forEach(({ name }) => {
-            if (isEmpty(manifest[name])) {
-              manifest[name] = fileSet;
-              return;
-            }
-            const { entry: originEntry, async: originAsync } = manifest[name];
-            manifest[name] = {
-              entry: dedupe(originEntry.concat(fileSet.entry)),
-              async: dedupe(originAsync.concat(fileSet.async)),
-            };
-          });
         } else {
-          const files = Array.from(this.pieceFilesSet(branch));
-          entrypoints.forEach(({ name }) => {
-            manifest[name] = dedupe((manifest[name] || []).concat(files));
-          });
+          files = Array.from(this.pieceFilesSet(branch));
         }
+        entrypoints.forEach(({ name }) => {
+          manifest[name] = this.concatManifestEntry(manifest[name], files);
+        });
         return manifest;
       }, {});
       // if user want the manifest based on the html
@@ -84,7 +74,8 @@ class ToxicWebpackManifestPlugin {
             return arr.concat(manifest[chunkName]);
           }, []));
           return htmlManifest;
-        }, []);
+        }, {});
+      console.log(this.options.htmlAsEntry, targetObject);
       const { pretty, space } = this.options;
       const json = pretty
         ? JSON.stringify(targetObject, null, space)
@@ -227,6 +218,22 @@ class ToxicWebpackManifestPlugin {
       ? this.options.publicPath
       : this.compiler.options.output.publicPath;
     return this.formatter(file, publicPath);
+  }
+
+  concatManifestEntry(oldValue, newValue) {
+    // when old value is empty, do not need to care about concat
+    if (isEmpty(oldValue)) return newValue;
+    // do not distinct async chunk
+    if (isArray(oldValue) && isArray(newValue)) {
+      return dedupe(oldValue.concat(newValue));
+    }
+    // need to distinct async chunk
+    const { entry: originEntry, async: originAsync } = oldValue;
+    const { entry, async } = newValue;
+    return {
+      entry: dedupe(originEntry.concat(entry)),
+      async: dedupe(originAsync.concat(async)),
+    };
   }
 }
 module.exports = ToxicWebpackManifestPlugin;
