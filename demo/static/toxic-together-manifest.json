@@ -1,0 +1,13 @@
+{
+  "bundle": [
+    "/bundle.js",
+    "/chunk.2ee0460aecebfc572a43.js",
+    "/chunk.bee94a217f36937c96aa.js"
+  ],
+  "vendor": [
+    "/vendor.js"
+  ],
+  "another": [
+    "/another.js"
+  ]
+}

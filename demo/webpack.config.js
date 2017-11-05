@@ -125,6 +125,11 @@ if (isProd) {
       htmlAsEntry: true,
       name: 'toxic-html-manifest.json',
     }),
+    new ToxicWebpackManifestPlugin({
+      exclude: /\.map$/,
+      distinctAsync: false,
+      name: 'toxic-together-manifest.json',
+    }),
   );
 }
 

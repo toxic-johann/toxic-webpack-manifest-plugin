@@ -44,4 +44,83 @@ const ToxixWebpackManifestPlugin = require('toxic-webpack-manifest-plugin');
 
 ## example
 
-> TODO: add some example here
+The manifest example is here.
+
+### default set
+
+```json
+{
+  "bundle": {
+    "entry": [
+      "/bundle.js"
+    ],
+    "async": [
+      "/chunk.2ee0460aecebfc572a43.js",
+      "/chunk.bee94a217f36937c96aa.js"
+    ]
+  },
+  "vendor": {
+    "entry": [
+      "/vendor.js"
+    ],
+    "async": []
+  },
+  "another": {
+    "entry": [
+      "/another.js"
+    ],
+    "async": []
+  }
+}
+```
+
+### html as entry
+
+```json
+{
+  "index.html": [
+    {
+      "entry": [
+        "/bundle.js"
+      ],
+      "async": [
+        "/chunk.2ee0460aecebfc572a43.js",
+        "/chunk.bee94a217f36937c96aa.js"
+      ]
+    },
+    {
+      "entry": [
+        "/vendor.js"
+      ],
+      "async": []
+    }
+  ],
+  "another.html": [
+    {
+      "entry": [
+        "/another.js"
+      ],
+      "async": []
+    }
+  ]
+}
+```
+
+### do not distinct async
+
+```json
+{
+  "bundle": [
+    "/bundle.js",
+    "/chunk.2ee0460aecebfc572a43.js",
+    "/chunk.bee94a217f36937c96aa.js"
+  ],
+  "vendor": [
+    "/vendor.js"
+  ],
+  "another": [
+    "/another.js"
+  ]
+}
+```
+
