@@ -1,6 +1,6 @@
 {
   "name": "toxic-webpack-manifest-plugin",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Generate manifest according to entry chunk, including assync chunk",
   "main": "index.js",
   "scripts": {
