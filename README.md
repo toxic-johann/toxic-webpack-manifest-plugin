@@ -41,6 +41,7 @@ const ToxicWebpackManifestPlugin = require('toxic-webpack-manifest-plugin');
 | publicPath        | string                            | undefined           | the publicPath for file, use the webpack `output.publicPath` as default one. |
 | distinctAsync     | boolean                           | true                | should we clarify which one is async     |
 | filenameFormatter | Function                          | undefined           | You can change the filename if you provide this. You can get the filename  and publicPath |
+| entryHtmlFormatter | Function                          | undefined           | You can change the key of object when htmlAsEntry is true |
 
 ## example
 
