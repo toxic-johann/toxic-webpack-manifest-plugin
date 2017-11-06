@@ -78,7 +78,7 @@ class ToxicWebpackManifestPlugin {
           }
           if (this.options.distinctAsync) {
             htmlManifest[key] = chunks.reduce(({ entry: originEntry, async: originAsync }, chunkName) => {
-              const { entry, async } = manifest[chunkName];
+              const { entry = [], async = [] } = manifest[chunkName] || {};
               return {
                 entry: dedupe(originEntry.concat(entry)),
                 async: dedupe(originAsync.concat(async)),
@@ -89,7 +89,7 @@ class ToxicWebpackManifestPlugin {
             });
           } else {
             htmlManifest[key] = dedupe(chunks.reduce((arr, chunkName) => {
-              return arr.concat(manifest[chunkName]);
+              return arr.concat(manifest[chunkName] || []);
             }, []));
           }
           
