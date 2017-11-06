@@ -84,12 +84,28 @@ class ToxicWebpackManifestPlugin {
       // we transfer is for them
       const targetObject = !this.options.htmlAsEntry ? manifest : Object.entries(htmlChunksMap).reduce((htmlManifest, [key, chunks]) => {
         if (chunks === 'all') {
-          htmlManifest[key] = manifest;
-          return htmlManifest;
+          chunks = Object.keys(manifest);
         }
-        htmlManifest[key] = dedupe(chunks.reduce((arr, chunkName) => {
-          return arr.concat(manifest[chunkName]);
-        }, []));
+        if (this.options.distinctAsync) {
+          htmlManifest[key] = chunks.reduce(({ entry: originEntry, async: originAsync }, chunkName) => {
+            var _manifest$chunkName = manifest[chunkName];
+            const entry = _manifest$chunkName.entry,
+                  async = _manifest$chunkName.async;
+
+            return {
+              entry: dedupe(originEntry.concat(entry)),
+              async: dedupe(originAsync.concat(async))
+            };
+          }, {
+            entry: [],
+            async: []
+          });
+        } else {
+          htmlManifest[key] = dedupe(chunks.reduce((arr, chunkName) => {
+            return arr.concat(manifest[chunkName]);
+          }, []));
+        }
+
         return htmlManifest;
       }, {});
       var _options = this.options;

@@ -78,31 +78,22 @@ The manifest example is here.
 
 ```json
 {
-  "index.html": [
-    {
-      "entry": [
-        "/bundle.js"
-      ],
-      "async": [
-        "/chunk.2ee0460aecebfc572a43.js",
-        "/chunk.bee94a217f36937c96aa.js"
-      ]
-    },
-    {
-      "entry": [
-        "/vendor.js"
-      ],
-      "async": []
-    }
-  ],
-  "another.html": [
-    {
-      "entry": [
-        "/another.js"
-      ],
-      "async": []
-    }
-  ]
+  "index.html": {
+    "entry": [
+      "/bundle.js",
+      "/vendor.js"
+    ],
+    "async": [
+      "/chunk.2ee0460aecebfc572a43.js",
+      "/chunk.bee94a217f36937c96aa.js"
+    ]
+  },
+  "another.html": {
+    "entry": [
+      "/another.js"
+    ],
+    "async": []
+  }
 }
 ```
 
