@@ -82,14 +82,12 @@ describe('toxic-webpack-manifest-plugin fetch manifest including async chunk', f
       const json = result.compilation.assets['toxic-manifest.json'].source();
       expect(JSON.parse(json)).toEqual({
         'index.html': {
-          js: {
-            entry: [
-              '/bundle.js',
-            ],
-            async: [
-              '/chunk.8a44f7894fa61bb94736.js',
-            ],
-          },
+          entry: [
+            '/bundle.js',
+          ],
+          async: [
+            '/chunk.8a44f7894fa61bb94736.js',
+          ],
         },
       });
       done();

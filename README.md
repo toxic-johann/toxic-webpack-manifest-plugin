@@ -114,4 +114,3 @@ The manifest example is here.
   ]
 }
 ```
-
