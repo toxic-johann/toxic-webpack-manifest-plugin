@@ -30,7 +30,8 @@ class ToxicWebpackManifestPlugin {
       exclude: false,
       publicPath: undefined,
       distinctAsync: true,
-      filenameFormatter: undefined
+      filenameFormatter: undefined,
+      entryHtmlFormatter: undefined
     }, options);
     this.includer = this.generatePredicateFunctionForFileName(this.options.include);
     this.excluder = this.generatePredicateFunctionForFileName(this.options.exclude);
@@ -40,9 +41,10 @@ class ToxicWebpackManifestPlugin {
   apply(compiler) {
     const htmlChunksMap = {};
     this.compiler = compiler;
-    compiler.plugin('compilation', function (compilation) {
-      compilation.plugin('html-webpack-plugin-before-html-processing', function (htmlPluginData, callback) {
-        htmlChunksMap[htmlPluginData.outputName] = htmlPluginData.plugin.options.chunks;
+    compiler.plugin('compilation', compilation => {
+      compilation.plugin('html-webpack-plugin-before-html-processing', (htmlPluginData, callback) => {
+        const key = isFunction(this.options.entryHtmlFormatter) ? this.options.entryHtmlFormatter(htmlPluginData.outputName) : htmlPluginData.outputName;
+        htmlChunksMap[key] = htmlPluginData.plugin.options.chunks;
         callback(null, htmlPluginData);
       });
     });

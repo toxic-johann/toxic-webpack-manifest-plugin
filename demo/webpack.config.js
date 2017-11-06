@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const ToxicWebpackManifestPlugin = require('../');
+const ToxicWebpackManifestPlugin = require('../src/index.js');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const isProd = nodeEnv === 'production';
@@ -124,6 +124,10 @@ if (isProd) {
       exclude: /\.map$/,
       htmlAsEntry: true,
       name: 'toxic-html-manifest.json',
+      entryHtmlFormatter(name) {
+        console.log(name);
+        return name + '123';
+      }
     }),
     new ToxicWebpackManifestPlugin({
       exclude: /\.map$/,

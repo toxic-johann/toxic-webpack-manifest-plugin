@@ -1,5 +1,5 @@
 {
-  "index.html": [
+  "index.html123": [
     {
       "entry": [
         "/bundle.js"
@@ -16,7 +16,7 @@
       "async": []
     }
   ],
-  "another.html": [
+  "another.html123": [
     {
       "entry": [
         "/another.js"
