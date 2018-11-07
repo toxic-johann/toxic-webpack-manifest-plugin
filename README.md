@@ -4,7 +4,7 @@
 [![Coverage Status](https://img.shields.io/coveralls/toxic-johann/toxic-webpack-manifest-plugin/master.svg?style=flat-square)](https://coveralls.io/github/toxic-johann/toxic-webpack-manifest-plugin?branch=master)
 [![npm](https://img.shields.io/npm/v/toxic-webpack-manifest-plugin.svg?colorB=brightgreen&style=flat-square)](https://www.npmjs.com/package/toxic-webpack-manifest-plugin)
 [![dependency Status](https://david-dm.org/toxic-johann/toxic-webpack-manifest-plugin.svg)](https://david-dm.org/toxic-johann/toxic-webpack-manifest-plugin)
-[![devDependency Status](https://david-dm.org/toxic-johann/toxic-webpack-manifest-plugin/dev-status.svg)](https://david-dm.org/toxic-johann/toxic-webpack-manifest-plugin?type=dev)
+[![devDependency Status](https://david-dm.org/toxic-johann/toxic-webpack-manifest-plugin/dev-status.svg)](https://david-dm.org/toxic-johann/toxic-webpack-manifest-plugin?type=dev) [![Greenkeeper badge](https://badges.greenkeeper.io/toxic-johann/toxic-webpack-manifest-plugin.svg)](https://greenkeeper.io/)
 
 This webpack plugin will generate a JSON files for the hashed file version. It include entry  chunk and async chunk. You can split them by entry or if you use [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin), you can sort them according to page.
 
